@@ -7,11 +7,40 @@
     <!-- IMPORT BOOTSTRAP -->
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <!-- // IMPORT BOOTSTRAP // -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <!-- // IMPORT SCRIPTS & STYLES // -->
     <link rel="stylesheet" href="stayl.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
+    <!-- LOGIN MODAL -->
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="username-input" >
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="floatingPassword"   placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="loginBynClicke()">Login</button>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!--// LOGIN MODAL // -->
     <!-- NAVIGATION BAR CONT -->
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 mb-5 bg-body-tertiary rounded">
@@ -26,7 +55,7 @@
                         <a class="nav-link" href="#">profile</a>
                     </div>
                     <div class="d-flex w-100 justify-content-end">
-                        <button type="button" class="btn btn-outline-success mx-4">Login</button>
+                        <button type="button" data-bs-toggle="modal" href="#exampleModalToggle" class="btn btn-outline-success mx-4">Login</button>
                         <button type="button" class="btn btn-outline-primary">Register</button>
                     </div>
                 </div>
@@ -40,7 +69,9 @@
         <!-- POSTS -->
         <div id="posts">
             <!-- POST -->
-            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary">
+
+            <h1 style="display: flex; align-items: center; justify-content: center; font-size: 200px; font-weight: 700;" >404</h1>
+            <!-- <div class="card shadow-lg p-3 mb-5 bg-body-tertiary">
                 <div class="card-header">
                     <img src="./profile-pics/WhatsApp Image 2025-02-24 at 01.21.56_c68d4cbc.jpg" alt="" >
                     <b>@fares</b>
@@ -58,55 +89,14 @@
                         <span>(3) Comments</span>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- // POST // -->
 
-             <!-- POST -->
-             <div class="card shadow-lg p-3 mb-5 bg-body-tertiary">
-                <div class="card-header">
-                    <img src="./profile-pics/WhatsApp Image 2025-02-24 at 01.21.56_c68d4cbc.jpg" alt="" >
-                    <b>@fares</b>
-                </div>
-                <div class="card-body">
-                    <img src="placeholders/Swag Poster.jpg" alt="">
-                    <h6 class="mt-1">
-                        2 min ago
-                    </h6>
-                    <h5>Lorem ipsum dolor sit amet.</h5>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit, earum.</p>
-                    <hr>
-                    <div>
-                        <i class="fa-solid fa-pen-clip"></i>
-                        <span>(3) Comments</span>
-                    </div>
-                </div>
-            </div>
-            <!-- // POST // -->
+            
 
-             <!-- POST -->
-            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary">
-                <div class="card-header">
-                    <img src="./profile-pics/WhatsApp Image 2025-02-24 at 01.21.56_c68d4cbc.jpg" alt="" >
-                    <b>@fares</b>
-                </div>
-                <div class="card-body">
-                    <img src="placeholders/Swag Poster.jpg" alt="">
-                    <h6 class="mt-1">
-                        2 min ago
-                    </h6>
-                    <h5>Lorem ipsum dolor sit amet.</h5>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit, earum.</p>
-                    <hr>
-                    <div>
-                        <i class="fa-solid fa-pen-clip"></i>
-                        <span>(3) Comments</span>
-                    </div>
-                </div>
-            </div>
-            <!-- // POST // -->
-        </div>
-        <!-- // POSTS // -->
+            
     </div>
     <!-- // MIN CONTENT // -->
+    <script src="script.js"></script>
 </body>
 </html>
