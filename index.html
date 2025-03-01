@@ -14,7 +14,7 @@
 </head>
 <body>
     <!-- LOGIN MODAL -->
-    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal fade" id="login-modal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -34,13 +34,19 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="loginBynClicke()">Login</button>
+                    <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button  type="button" class="btn btn-primary" onclick="loginBynClicke()">Login</button>
                 </div>
             </div>
         </div>
-      </div>
+    </div>
       <!--// LOGIN MODAL // -->
+
+
+    <!-- ====== ALERTS ============== -->
+    <div id="succes-alert"></div>
+    <!-- // ====== ALERTS ============== // -->
+    
     <!-- NAVIGATION BAR CONT -->
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 mb-5 bg-body-tertiary rounded">
@@ -54,10 +60,18 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                         <a class="nav-link" href="#">profile</a>
                     </div>
-                    <div class="d-flex w-100 justify-content-end">
-                        <button type="button" data-bs-toggle="modal" href="#exampleModalToggle" class="btn btn-outline-success mx-4">Login</button>
-                        <button type="button" class="btn btn-outline-primary">Register</button>
+                    <!-- NON-LOGGED IN USER -->
+                    <div class="d-flex w-100 justify-content-end" id="logged-in-dev">
+                        <button id="login-btn" type="button" data-bs-toggle="modal" href="#login-modal" class="btn btn-outline-success mx-4" >Login</button>
+                        <button id="Register-btn" type="button" class="btn btn-outline-primary">Register</button>
                     </div>
+                    <!-- // NON-LOGGED IN USER // -->
+
+                    <!-- FOR LOGGED IN USER --> 
+                    <div class="d-flex w-100 justify-content-end" id="logout-div">
+                        <button onclick="logout()" id="logout-btn" type="button" href="#login-modal" class="btn btn-outline-danger mx-4" >Logout</button>
+                    </div>
+                    <!-- // FOR LOGGED IN USER // -->
                 </div>
             </div>
         </nav> 

@@ -1,5 +1,5 @@
 
-
+setupUi()
 const baseUrl = "https://tarmeezacademy.com/api/v1"
 axios.get(`${baseUrl}/posts?limit=10`)
 .then((response)=>{
@@ -52,6 +52,61 @@ function loginBynClicke(){
     const url = `${baseUrl}/login`
     axios.post(url, params)
     .then((response)=>{
-        console.log(response.data)
+        console.log(response.data.token)
+        localStorage.setItem("token", response.data.token)
+        localStorage.setItem("user", JSON.stringify(response.data.user))
+
+        const modal = document.getElementById("login-modal")
+        const modalInstance = bootstrap.Modal.getInstance(modal)
+        modalInstance.hide()
+        setupUi()
+
     })
 }
+
+function logout(){
+    localStorage.removeItem("token")
+    localStorage.removeItem("user")
+    setupUi()
+}
+
+function showSuccessAlert(){
+    const alertPlaceholder = document.getElementById('succes-alert ')
+
+    const alert = (message, type) => {
+    const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `   <div>${message}</div>`,
+            '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper)
+    }
+
+    const alertTrigger = document.getElementById('liveAlertBtn')
+    if (alertTrigger) {
+        alertTrigger.addEventListener('click', () => {
+            alert('Nice, you triggered this alert message!', 'success')
+        })
+    }
+}
+
+function setupUi(){
+    const token =localStorage.getItem("token")
+
+    const loginDiv = document.getElementById("logged-in-dev")
+    const logoutDiv = document.getElementById("logout-div")
+    if(token == null) {
+        loginDiv.style.setProperty("display", "flex", "important")
+
+        logoutDiv.style.setProperty("display", "none", "important")
+    }else{
+        loginDiv.style.setProperty("display", "none", "important")
+
+        logoutDiv.style.setProperty("display", "flex", "important")
+    }
+}
+
+
