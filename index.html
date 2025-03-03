@@ -43,8 +43,44 @@
       <!--// LOGIN MODAL // -->
 
 
+
+    <!-- REDISTER MODAL -->
+    <div class="modal fade" id="Register-modal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Resister A New User</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" id="register-name-input" >
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Email" aria-label="email" aria-describedby="basic-addon1" id="register-email-input" >
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="register-username-input" >
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="register-password-input"   placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button  type="button" class="btn btn-primary" onclick="registerBtnClicke()">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// REDISTER MODAL // -->
+
     <!-- ====== ALERTS ============== -->
-    <div id="succes-alert"></div>
+    <div id="succes-alert" class="show fade succes"></div>
     <!-- // ====== ALERTS ============== // -->
     
     <!-- NAVIGATION BAR CONT -->
@@ -63,7 +99,7 @@
                     <!-- NON-LOGGED IN USER -->
                     <div class="d-flex w-100 justify-content-end" id="logged-in-dev">
                         <button id="login-btn" type="button" data-bs-toggle="modal" href="#login-modal" class="btn btn-outline-success mx-4" >Login</button>
-                        <button id="Register-btn" type="button" class="btn btn-outline-primary">Register</button>
+                        <button id="Register-btn" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" href="#Register-modal">Register</button>
                     </div>
                     <!-- // NON-LOGGED IN USER // -->
 
@@ -106,11 +142,9 @@
             </div> -->
             <!-- // POST // -->
 
-            
-
-            
+        </div>
     </div>
-    <!-- // MIN CONTENT // -->
+    
     <script src="script.js"></script>
 </body>
 </html>

@@ -16,3 +16,10 @@ body{
 #posts .card .card-body h6{
     color:  rgb(105, 103, 103) ;
 }
+.succes{
+    position: fixed;
+    z-index: 9999999;
+    width:30%;
+    bottom: 0;
+    right: 0;
+}
