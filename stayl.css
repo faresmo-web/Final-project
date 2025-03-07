@@ -13,7 +13,7 @@ body{
 #posts .card .card-body img{
     width: 100%;
 }
-#posts .card .card-body h6{
+#posts .card .card-body h2{
     color:  rgb(105, 103, 103) ;
 }
 .succes{
@@ -22,4 +22,20 @@ body{
     width:30%;
     bottom: 0;
     right: 0;
+}
+.add-btn{
+    position: fixed;
+    bottom: 5%;
+    right: 7%;
+    height: 70px;
+    width: 70px;
+    font-size: 50px;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999999999;
+    
+    /* line-height: 0; */
 }
