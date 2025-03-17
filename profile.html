@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
+    <title>PROFILE</title>
     <!-- IMPORT BOOTSTRAP -->
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -149,28 +149,28 @@
 
     <!-- ====== // MODALS // ============ -->
 
-    <!-- ======= ADD POST BUTTON ======== -->
-    <div class="bg-primary add-btn" id="add-btn" onclick="addBtnClicked()">
-        +
-    </div>
-    <!-- ======= // ADD POST BUTTON // ======== -->
+        <!-- ======= ADD POST BUTTON ======== -->
+        <div class="bg-primary add-btn" id="add-btn" onclick="addBtnClicked()">
+            +
+        </div>
+        <!-- ======= // ADD POST BUTTON // ======== -->
 
     <!-- ====== ALERTS ============== -->
-    <div id="succes-alert" class="show fade succes"></div>
+    <div id="succes-alert" class="show fade succes" style="cursor: pointer;"></div>
     <!-- // ====== ALERTS ============== // -->
     
     <!-- NAVIGATION BAR CONT -->
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 mb-5 bg-body-tertiary rounded ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">FARES</a>
+                <a class="navbar-brand" href="./index.html">FARES</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        <a class="nav-link" onclick="profileClicked()" style="cursor: pointer;">profile</a>
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                        <a class="nav-link" href="#">profile</a>
                     </div>
                     <!-- NON-LOGGED IN USER -->
                     <div class="d-flex w-100 justify-content-end" id="logged-in-dev">
@@ -195,38 +195,99 @@
     </div>
     <!-- // NAVIGATION BAR CONT // -->
 
-    <!-- MIN CONTENT -->
-    <div class="container">
-        <!-- POSTS -->
-        <div id="posts">
-            <!-- POST -->
+    <!-- MAIN CONTENT -->
+    <div class="container" style="height: 1000px;">
+        
+        <!-- MAIN INFE -->
+        
+            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary">
+                
+                <div class="card-body">
+                    <div class="row">
+                        <!-- USER IMAGE COL -->
+                        <div class="col-2 ">
+                            <img id="header-image"  src="" alt="" style="width: 150px; height: 150px; border-radius: 20px !important;">
+                        </div>
+                        <!-- // USER IMAGE COL // -->
 
+                        <!-- USERNAME - EMAIL - NAME -->
+                        <div id="main-info" class="col-4 d-flex flex-column justify-content-evenly" style="font-weight: 900;">
+                            <div class="user-main-info" id="main-info-email">
+                                email
+                            </div>
+
+                            <div class="user-main-info" id="main-info-name">
+                                name
+                            </div>
+                            <div class="user-main-info" id="main-info-username">
+                                username
+                            </div>
+                        </div>
+                        <!-- // USERNAME - EMAIL - NAME // -->
+
+                        <!-- POSTS & COMMENTS COUNT -->
+                        <div class="col-4 d-flex flex-column justify-content-evenly">
+                            <div class="number-info">
+                                <span id="posts-count">0</span> Post
+                            </div>
+                            <div class="number-info">
+                                <span id="comments-count">0</span> Comments
+                            </div>
+                        </div>
+                        <!-- // POSTS & COMMENTS COUNT // -->
+                    </div>
+                    
+                </div>
+            </div> 
+        
+        <!-- // MAIN INFE // -->
+
+
+        <!-- POSTS TITLE -->
+        <div class="row mt-5">
+            <h1> <span id="name-posts"></span> posts</h1>
+        </div>
+        <!-- // POSTS TITLE // -->
+
+        <!-- POSTS -->
+        <div class="row" id="user-posts">
             <!-- <h1 style="display: flex; align-items: center; justify-content: center; font-size: 200px; font-weight: 700;" >404</h1> -->
             <!-- <div class="card shadow-lg p-3 mb-5 bg-body-tertiary">
                 <div class="card-header">
-                    <img src="./profile-pics/WhatsApp Image 2025-02-24 at 01.21.56_c68d4cbc.jpg" alt="" >
-                    <b>@fares</b>
+                    <img src="${author.profile_image}" alt="" >
+                    <b>@${author.username}</b>
+                    ${editButtonContent}
+
                 </div>
-                <div class="card-body">
-                    <img src="placeholders/Swag Poster.jpg" alt="">
+                <div class="card-body" onclick="postClicked(${post.id})" style="cursor: pointer;">
+                    <h2>${postTitle}</h2>
+                    <p>${post.body}</p>
+                    <img src="${post.image}" alt="">
                     <h6 class="mt-1">
-                        2 min ago
-                    </h6>
-                    <h5>Lorem ipsum dolor sit amet.</h5>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit, earum.</p>
+                        ${post.created_at}
+                    </h6> 
+                    
+                    
                     <hr>
                     <div>
                         <i class="fa-solid fa-pen-clip"></i>
-                        <span>(3) Comments</span>
+                        <span>(${post.comments_count}) Comments</span>
+                        <span id="post-tags-${post.id}"></span>
+                            
                     </div>
                 </div>
             </div> -->
-            <!-- // POST // -->
-
         </div>
+        <!-- // POSTS // -->
+
+
+
+
+
     </div>
-    <!-- // MIN CONTENT // -->
-    
-    <script src="./JS/script.js"></script>
+    <!-- // MAIN CONTENT // -->
+        <script src="./JS/script.js"></script>
+    <script src="./JS/postDetails.js"></script>
+    <script src="./JS/profileScripts.js"></script>
 </body>
 </html>

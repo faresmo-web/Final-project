@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
+    <title>Post Comments</title>
     <!-- IMPORT BOOTSTRAP -->
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
-
     <!-- LOADER -->
     <div id="loader" class="loader-dav" >
         <span class="loader"></span>    
@@ -98,7 +97,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="post-modal-title">Create A New Post</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Create A New Post</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -106,7 +105,6 @@
                         <div class=" mb-3">
                             <label for="" class="col-form-label">Title</label>
                             <input type="text" class="form-control" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1" id="post-title-input" >
-                            <input type="hidden" id="post-id-input" value="">
                         </div>
                         <div class=" mb-3">
                             <textarea name="Body" id="post-body-input" style="width: 100%; height: 100px; border-color: gray; border-radius: 10px; resize: none;"></textarea>
@@ -119,41 +117,14 @@
                 </div>
                 <div class="modal-footer"> 
                     <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="post-modal-submit-btn"  type="button" class="btn btn-primary" onclick="createNewPostClicked()">Create</button>
+                    <button  type="button" class="btn btn-primary" onclick="createNewPostClicked()">Create</button>
                 </div>
             </div>
         </div>
     </div>
     <!--// CREATE POST MODAL // -->
 
-
-    <!-- DELETE POST MODAL -->
-    <div class="modal fade" id="delete-post-modal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="delete-modal-title">Are You Sure You Want To Delete The Post? <span id="delete-post-title"></span></h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-                    <input type="hidden" id="delete-post-id-input" value="">
-                </div>
-                
-                <div class="modal-footer"> 
-                    <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="post-modal-submit-btn"  type="button" class="btn btn-danger" onclick="confirmPostDelete()">Delete</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--// DELETE POST MODAL // -->
-
     <!-- ====== // MODALS // ============ -->
-
-    <!-- ======= ADD POST BUTTON ======== -->
-    <div class="bg-primary add-btn" id="add-btn" onclick="addBtnClicked()">
-        +
-    </div>
-    <!-- ======= // ADD POST BUTTON // ======== -->
 
     <!-- ====== ALERTS ============== -->
     <div id="succes-alert" class="show fade succes"></div>
@@ -163,14 +134,14 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 mb-5 bg-body-tertiary rounded ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">FARES</a>
+                <a class="navbar-brand" href="./index.html">FARES</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        <a class="nav-link" onclick="profileClicked()" style="cursor: pointer;">profile</a>
+                        <a class="nav-link" href="./profile.html">profile</a>
                     </div>
                     <!-- NON-LOGGED IN USER -->
                     <div class="d-flex w-100 justify-content-end" id="logged-in-dev">
@@ -195,12 +166,22 @@
     </div>
     <!-- // NAVIGATION BAR CONT // -->
 
-    <!-- MIN CONTENT -->
-    <div class="container">
-        <!-- POSTS -->
-        <div id="posts">
-            <!-- POST -->
 
+
+    <!-- MAIN CONTENT -->
+    <div class="container" style="height: 1000px;">
+        <!-- USER'S POST -->
+        <div class="d-flex justify-content-center mt-5">
+            <h1>
+                <b>Post</b>
+                <span id="username-span">Fares </span>
+            </h1>
+        </div>
+        <!-- // USER'S POST // -->
+
+        <!-- POST -->
+
+        <div id="showPost">
             <!-- <h1 style="display: flex; align-items: center; justify-content: center; font-size: 200px; font-weight: 700;" >404</h1> -->
             <!-- <div class="card shadow-lg p-3 mb-5 bg-body-tertiary">
                 <div class="card-header">
@@ -219,14 +200,26 @@
                         <i class="fa-solid fa-pen-clip"></i>
                         <span>(3) Comments</span>
                     </div>
-                </div>
-            </div> -->
-            <!-- // POST // -->
+                </div> -->
+                <hr>
 
+
+                <!-- COMMENTS -->
+                <div id="comments">
+                
+                </div>
+            <!-- COMMENTS --> 
+            <!-- // POST // -->
         </div>
+        
     </div>
-    <!-- // MIN CONTENT // -->
+    <!-- //  MAIN CONTENT // -->
+
     
-    <script src="./JS/script.js"></script>
+    
+    <script src="./JS/postDetails.js"></script>
+    <script>
+        setupUi()
+    </script>
 </body>
 </html>
